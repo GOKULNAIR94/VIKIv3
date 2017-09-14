@@ -22,9 +22,9 @@ module.exports = function(req, res) {
     HireTermOG = req.body.result.contexts[0].parameters['HireTerm.original'];
     HireTerm = req.body.result.contexts[0].parameters['HireTerm'];
     if (HireTerm == "Hire")
-        filePath = "./data/Hire.json";
+        filePath = __dirname + "/data/Hire.json";
     if (HireTerm == "Term")
-        filePath = "./data/Termination.json";
+        filePath = __dirname + "/data/Termination.json";
     
     
     if ( intentName.indexOf( "DCP - HireTerm - list - attrib" ) == 0 ) {

@@ -12,7 +12,7 @@ module.exports = function(req, res) {
     var filePath = "";
     var query = "";
     
-    filePath = "./data/JournalTable.json";
+    filePath = __dirname + "/data/JournalTable.json";
     
     query = [{
                 "key" : "JOURNAL_ID",

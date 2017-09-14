@@ -25,7 +25,7 @@ module.exports = function(req, res) {
     if ( intentName == "DCP - EmployeeData" || intentName == "DCP - EmployeeData - custom" ) {
         attrib = req.body.result.parameters['DCP_AttribsGeneral'];
         Name = req.body.result.contexts[0].parameters['Name.original'];
-        filePath = __dirname + "./data/EmployeeData.json";
+        filePath = __dirname + "/data/EmployeeData.json";
         
         query = [{
             "key" : "Name",
@@ -36,7 +36,7 @@ module.exports = function(req, res) {
 
     if ( intentName.indexOf( "DCP - Voucher" ) == 0 ) {
         attrib = req.body.result.contexts[0].parameters['VouchAttrib'];
-        filePath = __dirname + "./data/VoucherTable.json";
+        filePath = __dirname + "/data/VoucherTable.json";
         query = [{
             "key" : "VOUCHER_ID",
             "opt" : "==",
@@ -45,7 +45,7 @@ module.exports = function(req, res) {
     }
     
     if ( intentName.indexOf( "DCP - WLTable" ) == 0 ) {
-        filePath = __dirname + "./data/WLTable.json";
+        filePath = __dirname + "/data/WLTable.json";
         
         if ( intentName.indexOf( "DCP - WLTable - SLA" ) == 0 ) {
             var dDate = new Date();
@@ -90,7 +90,7 @@ module.exports = function(req, res) {
 
     if ( intentName.indexOf( "DCP - HeadCount" ) == 0 ) {
         attrib = "Headcount";
-        filePath = "./data/Headcount.json";
+        filePath = __dirname + "/data/Headcount.json";
         if (req.body.result.parameters.ED_Dept != null && req.body.result.parameters.ED_Dept != ""){
             
             query = [{
@@ -117,7 +117,7 @@ module.exports = function(req, res) {
     
     if (intentName == "DCP - WorklistApproval") {
         Name = req.body.result.contexts[0].parameters['Name.original'];
-        filePath = "./data/WorklistApproval.json";
+        filePath = __dirname + "/data/WorklistApproval.json";
         
         query = [{
             "key" : "Employee",
