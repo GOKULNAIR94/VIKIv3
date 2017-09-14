@@ -151,13 +151,11 @@ module.exports = function(req, res, callback) {
 
                             try {
                                 var GetNews = require("../news/getnews");
-                                var toSend = {
-                                    "key": "value"
-                                };
-                                toSend["track"] = resObj.items[0].TargetPartyName;
-                                toSend["intentName"] = req.body.result.metadata.intentName;
-                                console.log("toSend : " + JSON.stringify(toSend));
-                                GetNews( toSend, res, function(result) {
+                                
+                                req.body["track"] = resObj.items[0].TargetPartyName;
+                                req.body["intentName"] = req.body.result.metadata.intentName;
+                                
+                                GetNews( req, res, function(result) {
                                     console.log("GetNews Called");
                                 });
                             } catch (e) {
