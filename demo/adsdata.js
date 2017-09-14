@@ -33,7 +33,7 @@ module.exports = function(req, res) {
         }];
     }
     if ( intentName == "ADS_SNIncidents_list" ) {
-        filePath = __dirname + "./data/ServiceNow.json";
+        filePath = __dirname + "/data/ServiceNow.json";
         query = [{
             "key" : "Active",
             "opt" : "==",
