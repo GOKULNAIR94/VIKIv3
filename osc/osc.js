@@ -150,7 +150,7 @@ module.exports = function(req, res, callback) {
 
 
                             try {
-                                var GetNews = require("./news/getnews");
+                                var GetNews = require("../news/getnews");
                                 var toSend = {
                                     "key": "value"
                                 };
