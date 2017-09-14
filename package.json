@@ -25,6 +25,7 @@
     "json-query": "^2.2.2",
     "open": "0.0.5",
     "opn": "^5.1.0",
+    "dateformat": "^2.0.0",
     "request": "^2.76.0"
   },
   "devDependencies": {},
