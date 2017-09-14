@@ -29,28 +29,28 @@ module.exports = function( req, res ) {
     try
     {
         if( intentName == 'News' || intentName == 'News - link' ){
-            var GetNews - require("./news/getnews");
+            var GetNews = require("./news/getnews");
             GetNews(req, res, function(result) {
               console.log("GetNews Called");
             });
         }
     
     if( intentName == 'Budget' || intentName == 'Expense' || intentName.indexOf( "DCP -" ) == 0 || intentName.indexOf( "ADS_" ) == 0 ){
-            var GetDemo - require("./demo/getdemo");
+            var GetDemo = require("./demo/getdemo");
             GetDemo(req, res, function(result) {
               console.log("GetDemo Called");
             });
         }
         
         if( intentName == 'reporting' ){
-            var SendEmail - require("./email/sendEmail");
+            var SendEmail = require("./email/sendEmail");
             SendEmail(req, res, function(result) {
               console.log("SendEmail Called");
             });
         }
         
         if( intentName == 'oppty' || intentName=='oppty - next' || intentName=='oppty - custom' || intentName=='oppty - News'  ){
-            var OSC - require("./osc/osc");
+            var OSC = require("./osc/osc");
             OSC(req, res, function(result) {
               console.log("OSC Called");
             });
