@@ -1,5 +1,6 @@
 module.exports = function(req, res, callback) {
 
+    var os = require('os');
     console.log("Req  : " + JSON.stringify(req.body));
     var intentName = "";
     var tracker = "";
