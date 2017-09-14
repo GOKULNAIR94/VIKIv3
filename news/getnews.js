@@ -53,15 +53,10 @@ module.exports = function(req, res, callback) {
                             speech = speech + "" + os.EOL + "" + data.title + "! ";
                             speech = speech + "\n More @ : " + shortUrl + "!" + os.EOL;
                             if (count == 10) {
-                                console.log(" Speech : " + speech);
-                                if (req.body.intentName != null)
-                                    res.json(speech);
-                                else {
-                                    return res.json({
-                                        speech: speech,
-                                        displayText: speech
-                                    })
-                                }
+                                return res.json({
+                                    speech: speech,
+                                    displayText: speech
+                                });
                             }
                             count++;
                         })
