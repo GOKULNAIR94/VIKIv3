@@ -71,14 +71,10 @@ module.exports = function(req, res, callback) {
                 } else {
                     speech = speech + "" + os.EOL + "" + data.title + "! ";
                     if (count == 10) {
-                        if (req.body.intentName != null)
-                            res.json(speech);
-                        else {
-                            return res.json({
-                                speech: speech,
-                                displayText: speech
-                            })
-                        }
+                        return res.json({
+                            speech: speech,
+                            displayText: speech
+                        });
                     }
                     count++;
                 }
