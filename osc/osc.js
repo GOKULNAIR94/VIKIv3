@@ -493,6 +493,8 @@ module.exports = function(req, res, callback) {
 
 function getAuth(req, res, callback) {
     try {
+        var http = require('https');
+        
         if (req.body.originalRequest != null) {
             if (req.body.originalRequest.source == "skype") {
                 userid = req.body.originalRequest.data.address.user.id;
