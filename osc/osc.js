@@ -157,7 +157,7 @@ module.exports = function(req, res, callback) {
                                 toSend["track"] = resObj.items[0].TargetPartyName;
                                 toSend["intentName"] = req.body.result.metadata.intentName;
                                 console.log("toSend : " + JSON.stringify(toSend));
-                                GetNews(toSend, res, function(result) {
+                                GetNews( toSend, res, function(result) {
                                     console.log("GetNews Called");
                                 });
                             } catch (e) {

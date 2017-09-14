@@ -3,12 +3,12 @@ module.exports = function(req, res, callback) {
     console.log("Req  : " + JSON.stringify(req.body));
     var intentName = "";
     var tracker = "";
-    if (req.body.intentName != null)
+    if (req.intentName != null)
         intentName = req.body.intentName;
     else {
         intentName = req.body.result.metadata.intentName;
     }
-    if (req.body.track != null)
+    if (req.track != null)
         tracker = req.body.track;
     else {
         tracker = req.body.result.contexts[0].parameters.track;
