@@ -74,12 +74,6 @@ var GetAuth = require("./getauth");
 restService.post('/inputmsg', function(req, res) {
     
     try{
-        https.get("https://vikinews.herokuapp.com");
-                    https.get("https://vikiviki.herokuapp.com");
-                    https.get("https://salty-tor-67194.herokuapp.com");
-                    https.get("https://opty.herokuapp.com");
-
-        
         console.log("Req  : " + JSON.stringify(req.body));
         req.body.headers = req.headers;
 //        var Id = req.body.Id;
