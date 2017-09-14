@@ -7,7 +7,7 @@ module.exports = function ( req, res, callback){
                 userid = req.body.originalRequest.data.address.user.id;
                 console.log("skype userid : " + userid);
             }
-            if (req.body.originalRequest.source == "slack") {
+            if (req.body.originalRequest.source == "slack" || req.body.originalRequest.source == "slack_testbot") {
                 userid = req.body.originalRequest.data.event.user;
                 console.log("Slack userid : " + userid);
             }
