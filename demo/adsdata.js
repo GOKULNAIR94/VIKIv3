@@ -24,7 +24,7 @@ module.exports = function(req, res) {
         
         number = req.body.result.parameters['Number'];
         
-        filePath = "data/ServiceNow.json";
+        filePath = "../demo/data/ServiceNow.json";
         
         query = [{
             "key" : "Number",
@@ -33,7 +33,7 @@ module.exports = function(req, res) {
         }];
     }
     if ( intentName == "ADS_SNIncidents_list" ) {
-        filePath = "data/ServiceNow.json";
+        filePath = "../demo/data/ServiceNow.json";
         query = [{
             "key" : "Active",
             "opt" : "==",
