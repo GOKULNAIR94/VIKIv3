@@ -24,7 +24,7 @@ module.exports = function(req, res) {
         
         number = req.body.result.parameters['Number'];
         
-        filePath = "/data/ServiceNow.json";
+        filePath = "data/ServiceNow.json";
         
         query = [{
             "key" : "Number",
