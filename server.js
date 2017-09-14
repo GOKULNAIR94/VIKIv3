@@ -87,8 +87,12 @@ restService.post('/inputmsg', function(req, res) {
                 userid = req.body.originalRequest.data.direct_message.sender_id;
                 console.log("Tweet userid : " + userid);
             }
-            if (req.body.originalRequest.source == "slack" || req.body.originalRequest.source == "slack_testbot") {
+            if (req.body.originalRequest.source == "slack" ) {
                 userid = req.body.originalRequest.data.event.user;
+                console.log("Slack userid : " + userid);
+            }
+            if (req.body.originalRequest.source == "slack_testbot") {
+                userid = req.body.originalRequest.data.user;
                 console.log("Slack userid : " + userid);
             }
 
