@@ -31,27 +31,30 @@ module.exports = function( req, res ) {
         if( intentName == 'News' || intentName == 'News - link' ){
             var GetNews - require("./news/getnews");
             GetNews(req, res, function(result) {
-              console.log("SendEmail Called");
+              console.log("GetNews Called");
             });
         }
     
     if( intentName == 'Budget' || intentName == 'Expense' || intentName.indexOf( "DCP -" ) == 0 || intentName.indexOf( "ADS_" ) == 0 ){
-            varHost = 'vikiviki.herokuapp.com';
-            varPath = '/inputmsg'; 
+            var GetDemo - require("./demo/getdemo");
+            GetDemo(req, res, function(result) {
+              console.log("GetDemo Called");
+            });
         }
         
         if( intentName == 'reporting' ){
-            varHost = 'salty-tor-67194.herokuapp.com';
-            varPath = '/report';
+            var SendEmail - require("./email/sendEmail");
+            SendEmail(req, res, function(result) {
+              console.log("SendEmail Called");
+            });
         }
         
         if( intentName == 'oppty' || intentName=='oppty - next' || intentName=='oppty - custom' || intentName=='oppty - News'  ){
-            //varHost = 'polar-sea-99105.herokuapp.com';
-            varHost = 'opty.herokuapp.com';
-            varPath = '/oppty';
+            var OSC - require("./osc/osc");
+            OSC(req, res, function(result) {
+              console.log("OSC Called");
+            });
         }
-        console.log( "varHost : " + varHost );
-        console.log( "varPath : " + varPath);
 
     }
     catch(e)
