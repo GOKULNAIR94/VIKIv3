@@ -147,53 +147,19 @@ module.exports = function(req, res, callback) {
                         console.log(opty);
                         //console.log('$'+resObj.Revenue);
                         if (req.body.result.metadata.intentName == "oppty - News") {
+
+
                             try {
-                                var varHost = 'vikinews.herokuapp.com';
-                                var varPath = '/inputmsg';
+                                var GetNews = require("./news/getnews");
                                 var toSend = {
                                     "key": "value"
                                 };
                                 toSend["track"] = resObj.items[0].TargetPartyName;
                                 toSend["intentName"] = req.body.result.metadata.intentName;
                                 console.log("toSend : " + JSON.stringify(toSend));
-                                var newoptions = {
-                                    host: varHost,
-                                    path: varPath,
-                                    data: toSend,
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    }
-                                };
-
-                                var body = "";
-                                var responseObject;
-
-                                var post_req = http.request(newoptions, function(response) {
-                                    response.on('data', function(chunk) {
-                                        body += chunk;
-                                    });
-
-                                    response.on('end', function() {
-                                        responseObject = JSON.parse(body);
-                                        speech = responseObject;
-                                        return res.json({
-                                            speech: speech,
-                                            displayText: speech
-                                        })
-
-                                    })
-                                }).on('error', function(e) {
-                                    speech = "Error occured! : " + e;
-                                    return res.json({
-                                        speech: speech,
-                                        displayText: speech
-                                    })
+                                GetNews(toSend, res, function(result) {
+                                    console.log("GetNews Called");
                                 });
-                                post_req.write(JSON.stringify(toSend));
-                                //post_req.write(tracker);
-                                post_req.end();
-
                             } catch (e) {
                                 console.log("Error : " + e);
                             }
@@ -494,13 +460,13 @@ module.exports = function(req, res, callback) {
 function getAuth(req, res, callback) {
     try {
         var http = require('https');
-        
+
         if (req.body.originalRequest != null) {
             if (req.body.originalRequest.source == "skype") {
                 userid = req.body.originalRequest.data.address.user.id;
                 console.log("skype userid : " + userid);
             }
-            if (req.body.originalRequest.source == "slack" ) {
+            if (req.body.originalRequest.source == "slack") {
                 userid = req.body.originalRequest.data.event.user;
                 console.log("Slack userid : " + userid);
             }
@@ -554,7 +520,7 @@ function getAuth(req, res, callback) {
             });
         });
     } catch (e) {
-        console.log("No Og req :" + e );
+        console.log("No Og req :" + e);
     }
 
 }
